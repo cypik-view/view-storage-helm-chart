@@ -25,52 +25,52 @@ spec:
             {{- end }}
           volumeMounts:
             - name: syslog-config
-              mountPath: /app/config
+              mountPath: {{ .Values.mountPaths.config }}
               readOnly: false
               subPath: view.json
             - name: storage-volume
-              mountPath: /app/assets/
+              mountPath: {{ .Values.mountPaths.assets }}
               subPath: assets
             - name: storage-volume
-              mountPath: /app/logs/
+              mountPath: {{ .Values.mountPaths.logs }}
               subPath: logs
             - name: storage-volume
-              mountPath: /app/temp/
+              mountPath: {{ .Values.mountPaths.temp }}
               subPath: temp
             - name: storage-volume
-              mountPath: /app/disk/
+              mountPath: {{ .Values.mountPaths.disk }}
               subPath: disk
             - name: storage-volume
-              mountPath: /app/compress/
+              mountPath: {{ .Values.mountPaths.compress }}
               subPath: compress
             - name: storage-volume
-              mountPath: /app/metadata/
+              mountPath: {{ .Values.mountPaths.metadata }}
               subPath: metadata
             - name: storage-volume
-              mountPath: /app/multipart/
+              mountPath: {{ .Values.mountPaths.multipart }}
               subPath: multipart
             - name: storage-volume
-              mountPath: /app/webhookreq/
+              mountPath: {{ .Values.mountPaths.webhookreq }}
               subPath: webhookreq
             - name: storage-volume
-              mountPath: /app/webhookresp/
+              mountPath: {{ .Values.mountPaths.webhookresp }}
               subPath: webhookresp
             - name: storage-volume
-              mountPath: /app/controllog/
+              mountPath: {{ .Values.mountPaths.controllog }}
               subPath: controllog
             - name: storage-volume
-              mountPath: /app/controlapi/
+              mountPath: {{ .Values.mountPaths.controlapi }}
               subPath: controlapi
             - name: storage-volume
-              mountPath: /app/controltoken/
+              mountPath: {{ .Values.mountPaths.controltoken }}
               subPath: controltoken
       volumes:
         - name: syslog-config
           configMap:
             name: {{ .Chart.Name }}-config
             items:
-            - key: view.json
-              path: view.json
+              - key: view.json
+                path: view.json
         - name: storage-volume
           persistentVolumeClaim:
             claimName: {{ include "view-storage.fullname" . }}-pvc
