@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  view-storage:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-02-12T10:54:59.410903961+05:30"
+    description: A Helm chart for Kubernetes
+    digest: cca7edbd08927f8ec725491ef2b434f8116071800759af69dca9abb451fb19f6
+    name: view-storage
+    type: application
+    urls:
+    - view-storage-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-02-12T10:54:59.407759501+05:30"
